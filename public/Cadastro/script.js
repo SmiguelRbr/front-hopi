@@ -27,21 +27,49 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         return true;
     }
 
+    // Função para validar e-mail
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Por favor, insira um e-mail válido.');
+            return false;
+        }
+        return true;
+    }
+
+    // Função para validar data de nascimento
+    function validateBirthDate(birthDate) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)) {
+            alert('A data de nascimento deve estar no formato AAAA-MM-DD.');
+            return false;
+        }
+        const date = new Date(birthDate);
+        if (isNaN(date.getTime()) || date > new Date()) {
+            alert('Por favor, insira uma data de nascimento válida e no passado.');
+            return false;
+        }
+        return true;
+    }
+
     // Validação dos campos
     if (!validateFields()) return;
 
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
+    const email = document.getElementById('email').value.trim();
+    const birthDate = document.getElementById('birthDate').value.trim();
 
     if (!validatePassword(password, confirmPassword)) return;
+    if (!validateEmail(email)) return;
+    if (!validateBirthDate(birthDate)) return;
 
     // Preparar dados para envio
     const formData = {
         first_name: document.getElementById('firstName').value.trim(),
         last_name: document.getElementById('lastName').value.trim(),
-        email: document.getElementById('email').value.trim(),
+        email: email,
         password: password,
-        birth_date: document.getElementById('birthDate').value.trim(),
+        birth_date: birthDate,
         phone: document.getElementById('phone').value.trim()
     };
 
@@ -59,12 +87,12 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         if (response.ok) {
             alert('Cadastro realizado com sucesso!');
-            window.location.href = '../Login/login.html';
+            window.location.href = '/public/Login/login.html';
         } else {
-            alert(`Erro: ${data.message || 'Ocorreu um erro no cadastro'}`);
+            alert(`Erro: ${data.mensagem || 'Ocorreu um erro no cadastro'}`);
         }
     } catch (error) {
-        console.error('Erro:', error);
+        console.error('Erro de conexão:', error);
         alert('Erro de conexão. Tente novamente mais tarde.');
     }
 });
