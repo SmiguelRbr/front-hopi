@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hopi Hari</title>
+    <link rel="stylesheet" href="../../css/aribabiba.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo Hopi Hari">
+                </div>
+                <div class="user-menu">
+                    <div class="user-info">
+                        <div class="user-name" id="user-name">Bem-vindo(a)</div>
+                        <div class="user-email" id="user-email"></div>
+                    </div>
+                    <form action="dashboard.html">
+                        <button class="logout-btn" >Voltar</button>
+                    </form>
+                    
+
+                </div>
+            </div>
+        </div>
+    </header>
+    
+   
+
+    <div class="container">
+        <div class="rides-grid">
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('imagem/katakumb.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Katakumbi</h3>
+                    <div class="ride-time">35 min</div>
+                    <span class="ride-status status-busy">Muito Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('imagem/ekatomb.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Ekatomb</h3>
+                    <div class="ride-time">15 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('imagem/montezum.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Montezum</h3>
+                    <div class="ride-time">20 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('imagem/vurang.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Vurang</h3>
+                    <div class="ride-time">25 min</div>
+                    <span class="ride-status status-busy">Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('imagem/simlakron.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Simulakron</h3>
+                    <div class="ride-time">40 min</div>
+                    <span class="ride-status status-busy">Muito Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('imagem/vulaviking.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Vulaviking</h3>
+                    <div class="ride-time">10 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+        <p class="last-update">Última atualização: 25/04/2025 15:42</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Parque HOPIhARI - Sistema de Gerenciamento de Filas
+    </div>
+<!-- 
+    <script>
+        // Código para atualização em tempo real
+        function atualizarTemposEspera() {
+            // Em uma implementação real, aqui faria uma chamada AJAX para o servidor
+            // para obter os dados atualizados das filas
+            
+            // Simulação de atualização para demonstração
+            const agora = new Date();
+            document.querySelector('.last-update').textContent = 
+                `Última atualização: ${agora.toLocaleDateString()} ${agora.toLocaleTimeString()}`;
+        }
+
+        // Atualizar a cada 30 segundos
+        setInterval(atualizarTemposEspera, 30000);
+    </script>
+    
+    
+
+    <script>
+        // Verificar se há um usuário logado
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('user')) || {};
+            
+            if (userData.firstName) {
+                document.getElementById('user-name').textContent = `Olá, ${userData.firstName}!`;
+                document.getElementById('user-email').textContent = userData.email;
+            } else {
+                // Redirecionar para a página de login se não houver usuário
+                window.location.href = '/';
+            }
+            
+            // Botão de logout
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            });
+            
+            // Toggle do menu lateral (para mobile)
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um item (para mobile)
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script> -->
+</body>
+</html>
